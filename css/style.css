@@ -5,7 +5,7 @@
 } */
 
 body{
-    background-image: url(/img/image-background.png) 50%;
+    background-image: url(/img/image-background.png);
     width: 100%;
     /* height: 60vh; */
     background-size: cover;
@@ -20,27 +20,34 @@ body{
     width: 100%;
     mix-blend-mode: hard-light;
     opacity: 1;
+    z-index: -1; /* Garante que o blend fique por trás do conteúdo */
 }
 
 .hero-section{
     width: 100%;
-    padding-right: px;
-    padding-left: px;
+    padding-right: 0px;
+    padding-left: 0px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 70vh; /* Garante uma altura mínima para a seção hero */
 }
 
 .texto-principal{
-    width: 547px    ;
+    width: 547px;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 32px;
+    text-align: left; /* Garante alinhamento padrão à esquerda para o texto */
 }
 
 .titulo{
     width: 552px;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -49,6 +56,9 @@ body{
 #img-modelo{
     width: auto;
     height: auto;
+    max-width: 100%;
+    display: block;
+    margin-left: 20px; /* Adiciona um pouco de espaço à esquerda no desktop */
 }
 
 h2{
@@ -64,20 +74,22 @@ p{
     font-size: 28px;
     font-weight: 400;
     line-height: 105.314%;
-        color: #00004d;
+    color: #00004d;
 }
 
 #logo{
     width: 302px;
     height: 151px;
+    max-width: 100%;
+    height: auto;
 }
 
 .scroll-section{
     display: flex;
     width: 1129.5px;
-    margin-top: 60px;
-    margin-bottom: 90px;
-    flex-direction: line;
+    max-width: 90%;
+    margin: 60px auto 90px auto;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 8px;
@@ -90,24 +102,35 @@ p{
 
 .box-section{
     display: inline-flex;
-    align-items: center;
+    align-items: stretch; /* ALTERADO: Faz com que as caixas tenham a mesma altura */
     gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin-bottom: 90px;
 }
 
 .box{
     display: flex;
     width: 360px;
-    height: 254px;
-    padding: 24px 16px 32px 16px;
+    min-width: 280px;
+    max-width: 100%;
+    /* Removida altura fixa para permitir que o conteúdo dite a altura */
+    padding: 56px 16px 86px 16px;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     gap: 16px;
-    background: #00004d;
+    box-sizing: border-box;
     border-radius: 24px;
-    border-bottom: 24px solid;
-    border-image: linear-gradient(102deg, #1bf266 37%, #00aa3b 97.1%) 1;
-    /* border-bottom: 24px solid linear-gradient(102deg, #1bf266 37%, #00aa3b 97.1%); */
+
+    background-color: #00004d;
+    background-image: linear-gradient(102deg, #1bf266 37%, #00aa3b 97.1%);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 24px;
+    background-clip: padding-box;
 }
 
 #titulo-box{
@@ -132,10 +155,12 @@ p{
     padding: 7px;
     align-items: center;
     position: relative;
-    left: 40%;
+    left: 50%;
+    transform: translateX(-50%);
     top: -32px;
     border-radius: 8px;
     background: linear-gradient(108deg, #1bf266 37%, #00aa3b 97.1%);
+    z-index: 1;
 }
 
 .lojistas{
@@ -149,11 +174,13 @@ p{
     justify-content: center;
     gap: 10px;
     background-color: #00004d;
+    box-sizing: border-box;
 }
 
 .lojistas-content{
     display: flex;
     width: auto;
+    max-width: 100%;
     flex-direction: column;
     align-items: center;
     gap: 32px;
@@ -189,19 +216,37 @@ p{
     align-items: center;
     gap: 23px;
     align-self: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.galeria img{
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 #img-dupla{
    display: flex;
    width: auto;
+   max-width: 100%;
    flex-direction: column;
    align-items: flex-start;
    gap: 30px;
 }
 
+#img-dupla img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 .vantagens{
     width: 100%;
     padding: 0 80px;
+    box-sizing: border-box;
+    margin-top: 90px;
+    margin-bottom: 90px;
 }
 
 #title-vantagens{
@@ -211,6 +256,7 @@ p{
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-bottom: 40px;
 }
 
 .section-vantagens{
@@ -218,6 +264,8 @@ p{
     align-items: flex-start;
     gap: 24px;
     width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .content-box{
@@ -225,26 +273,31 @@ p{
     justify-content: center;
     text-align: center;
     width: 100%;
+    max-width: 250px;
 }
 
 #icon-vantagem{
     position: relative;
-    top: 30px;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
 }
 
 .box-vantagem{
     display: flex;
     width: 100%;
-    height: 106px;
-    padding: 24px 16px 0px 16px;
+    /* Removida altura fixa para permitir que o conteúdo dite a altura */
+    padding: 54px 16px 24px 16px;
     justify-content: center;
     align-items: flex-start;
     flex-shrink: 0;
     border-radius: 8px;
     background: linear-gradient(180deg, #1BF266 0%, rgba(16, 140, 59, 0.00) 93.04%);
+    box-sizing: border-box;
 }
 
-#text-box-vantegens{
+#text-box-vantagens{
     color: #00004D;
     text-align: center;
     font-family: "Eastman Roman Trial";
@@ -264,15 +317,268 @@ p{
     background: rgba(27, 242, 102, 0.12);
     box-shadow: 0px 3px 20px 0px rgba(27, 242, 102, 0.10);
     backdrop-filter: blur(10.949999809265137px);
+    margin: 40px auto;
+    box-sizing: border-box;
+    max-width: calc(100% - 40px);
 }
 
 .content-afiliados{
     display: flex;
     align-items: center;
     gap: 32px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .image-afiliados{
     width: 456px;
     height: 489px;
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.image-afiliados img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-afiliados{
+    max-width: 100%;
+    text-align: center;
+}
+
+.text-afiliados h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.text-afiliados p {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+/* Estilização do botão "Quero ser um afiliado do Guia" */
+.afiliados .text-afiliados button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(108deg, #1bf266 37%, #00aa3b 97.1%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Transições suaves para hover */
+    white-space: nowrap;
+}
+
+.afiliados .text-afiliados button:hover {
+    background: linear-gradient(108deg, #00aa3b 37%, #1bf266 97.1%); /* Inverte o gradiente ou o escurece */
+    transform: translateY(-2px); /* Efeito de "levantar" */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+.afiliados .text-afiliados button img {
+    width: 20px; /* Ajusta o tamanho do ícone */
+    height: 20px;
+    filter: brightness(0) invert(1); /* Tenta colorir o SVG para branco se ele for preto */
+}
+
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 15px;
+        min-height: auto;
+    }
+
+    .texto-principal, .titulo {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    #img-modelo {
+        margin: 20px auto 0 auto;
+    }
+
+    h2 {
+        font-size: 32px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    #logo {
+        width: 200px;
+        height: auto;
+    }
+
+    .scroll-section {
+        width: 90%;
+        margin: 40px auto 60px auto;
+    }
+
+    .box-section {
+        flex-direction: column;
+        gap: 30px;
+        padding: 0 15px;
+        margin-bottom: 60px;
+    }
+
+    .box {
+        width: 100%;
+        height: auto;
+        padding: 40px 15px 70px 15px;
+    }
+
+    #icon-box {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -25px;
+    }
+
+    .lojistas {
+        padding: 30px 20px;
+    }
+
+    #lojistas-title {
+        font-size: 48px;
+    }
+
+    #texto-lojistas {
+        font-size: 20px;
+    }
+
+    .galeria {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #img-dupla {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .vantagens {
+        padding: 0 20px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+
+    #title-vantagens {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .section-vantagens {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .content-box {
+        max-width: 100%;
+    }
+
+    #icon-vantagem {
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .box-vantagem {
+        height: auto;
+        padding: 40px 15px 20px 15px;
+    }
+
+    #text-box-vantagens {
+        font-size: 18px;
+    }
+
+    .afiliados {
+        flex-direction: column;
+        padding: 40px 20px;
+        margin: 30px auto;
+        max-width: calc(100% - 30px);
+    }
+
+    .content-afiliados {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .image-afiliados {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .image-afiliados img {
+        width: 100%;
+        height: auto;
+    }
+
+    .text-afiliados h2 {
+        font-size: 32px;
+    }
+
+    .text-afiliados p {
+        font-size: 18px;
+    }
+
+    .afiliados .text-afiliados button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    h2 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    #lojistas-title {
+        font-size: 38px;
+    }
+
+    #texto-lojistas {
+        font-size: 18px;
+    }
+
+    #title-vantagens {
+        font-size: 24px;
+    }
+
+    #text-box-vantagens {
+        font-size: 16px;
+    }
+
+    .text-afiliados h2 {
+        font-size: 28px;
+    }
+
+    .text-afiliados p {
+        font-size: 16px;
+    }
+
+    .afiliados .text-afiliados button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
 }
